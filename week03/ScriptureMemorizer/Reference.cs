@@ -5,12 +5,18 @@ public class Reference
     public int _chapter;
     public int _verse;
     public int _endVerse;
+    private int v;
 
     public Reference(string book, int chapter, int verse)
     {
         _book = book;
         _chapter = chapter;
         _verse = verse;
+    }
+
+    public Reference(string book, int chapter, int verse, int v) : this(book, chapter, verse)
+    {
+        this.v = v;
     }
 
     public Reference(string book, int chapter, int verse, int endVerse, int startVerse)
