@@ -1,31 +1,27 @@
-using System.Reflection.Metadata;
-using System.Security.Cryptography.X509Certificates;
-
 public class Address
 {
-    public string street;
-    public string city;
-    public string state;
-    public string country;
-    public bool us;
+    private string _street;
+    private string _city;
+    private string _state;
+    private string _country;
 
-    public void isUSAddress()
+    public Address(string street, string city, string state, string country)
     {
-        
-        if (country == "USA" || country == "usa" || country == "United States" || country == "United States of America")
-        {
-            us = true;
-        }
-        else
-        {
-            us = false;
-        }
+        _street = street;
+        _city = city;
+        _state = state;
+        _country = country;
     }
 
-    public void labelAddress()
+    public bool IsInUSA()
     {
-        Console.WriteLine(street);
-        Console.WriteLine($"{city}, {state}");
-        Console.WriteLine(country);
+        // Converte para minúsculas para evitar erros de digitação (USA vs usa)
+        string countryLower = _country.ToLower();
+        return countryLower == "usa" || countryLower == "united states";
+    }
+
+    public string GetFullAddress()
+    {
+        return $"{_street}\n{_city}, {_state}\n{_country}";
     }
 }

@@ -1,11 +1,20 @@
-public class Custumer
+public class Customer
 {
-    public string name;
-    public Address address;
+    private string _name;
+    private Address _address;
 
-    public void usCheck()
+    public Customer(string name, Address address)
     {
-        address.isUSAddress();
+        _name = name;
+        _address = address;
     }
 
+    public bool LivesInUSA()
+    {
+        // Encapsulamento: o cliente pergunta ao endereço se é nos EUA
+        return _address.IsInUSA();
+    }
+
+    public string GetName() => _name;
+    public string GetAddressDetails() => _address.GetFullAddress();
 }
