@@ -51,12 +51,21 @@ public class ReflectingActivity : Activity
         Console.WriteLine(_prompts[index]);
     }
 
-    public List<string> GetQuestionsFromUser()
+    public List<string> GetRandomQuestion()
     {
-        return _questions;
+        Random rand = new Random();
+        int index = rand.Next(_questions.Count);
+        Console.WriteLine(_questions[index]);
     }
 
-    public 
+    public void DisplayRandomPrompt()
+    {
+        GetRandomPrompt();
+    }
 
+    public void DisplayRandomQuestion()
+    {
+        GetRandomQuestion();
+    }
 
 }

@@ -36,7 +36,6 @@ public void LoadFromFile(string filename)
                 string[] parts = line.Split('|');
                 if (parts.Length == 3)
                 {
-                    // Criamos o objeto de volta a partir do texto
                     Entry entry = new Entry();
                     entry.date = parts[0];
                     entry.prompt = parts[1];
@@ -49,12 +48,10 @@ public void LoadFromFile(string filename)
 
 public void SaveToFile(string filename)
     {
-        // Criamos uma lista de strings temporária para salvar
         List<string> lines = new List<string>();
 
         foreach (Entry e in _entries)
         {
-            // Transformamos o objeto em uma linha de texto separada por |
             lines.Add($"{e.date}|{e.prompt}|{e.response}");
         }
 
