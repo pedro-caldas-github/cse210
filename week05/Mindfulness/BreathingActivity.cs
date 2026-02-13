@@ -1,23 +1,28 @@
 public class BreathingActivity : Activity
 {
-    public BreathingActivity(string name, string description, int duration) : base(name, description, duration)
+    public BreathingActivity(string name, string description) : base(name, description)
     {
         Name = name;
         Description = description;
-        Duration = duration;
+        Duration = 30;
     }
 
     public void Run()
     {
         DisplayStartingMessage();
-        Console.WriteLine("Get ready to begin...");
         ShowSpinner(3);
 
-        Console.WriteLine("Breathe in...");
-        ShowSpinner(4);
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(Duration);
 
-        Console.WriteLine("Now breathe out...");
-        ShowSpinner(4);
+        while (DateTime.Now < endTime)
+        {
+            Console.WriteLine("Breathe in...");
+            ShowSpinner(4);
+
+            Console.WriteLine("Now breathe out...");
+            ShowSpinner(4);
+        }
 
         DisplayEndingMessage();
     }

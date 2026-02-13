@@ -21,17 +21,15 @@ public class ReflectingActivity : Activity
     };
 
 
-    public ReflectingActivity(string name, string description, int duration) : base(name, description, duration)
+    public ReflectingActivity(string name, string description) : base(name, description)
     {
         Name = name;
         Description = description;
-        Duration = duration;
     }
 
     public void Run()
     {
         DisplayStartingMessage();
-        Console.WriteLine("Get ready to begin...");
         ShowSpinner(3);
 
         Console.WriteLine("Take a moment to reflect on the following prompt:");
@@ -55,7 +53,8 @@ public class ReflectingActivity : Activity
     {
         Random rand = new Random();
         int index = rand.Next(_questions.Count);
-        Console.WriteLine(_questions[index]);
+        return _questions;
+        
     }
 
     public void DisplayRandomPrompt()
